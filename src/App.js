@@ -1,23 +1,29 @@
-import logo from './logo.svg';
+import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./Pages/Home";
+import Nopage from "./Pages/Nopage/Nopage";
+import Todo from "./Pages/Todo";
+import Layout from "./Layout";
+import AppContextProvider from "./context/appContext";
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <AppContextProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Home />}></Route>
+              <Route path="/todo" element={<Todo />}></Route>
+              <Route path="/todo/:id" element={<Todo />}></Route>
+            </Route>
+            <Route path="*" element={<Nopage />}></Route>
+          </Routes>
+        </BrowserRouter>
+      </AppContextProvider>
     </div>
   );
 }
