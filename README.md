@@ -2,6 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# an above code create a new folder for db file and save it in another folder not in same reactapp folder.
+ open Db folder and run cmd and "json-server db.json --port=3001" run this command.
+ # db is a json server file.
+
+
 ## Available Scripts
 
 In the project directory, you can run:
